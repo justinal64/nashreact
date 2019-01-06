@@ -1,0 +1,24 @@
+{
+    "name": "presentation",
+    "version": "1.0.0",
+    "description": "Presentation for Nashreact ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "mdx-deck deck.mdx",
+        "build": "mdx-deck build deck.mdx"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/justinal64/nashreact.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/justinal64/nashreact/issues"
+    },
+    "homepage": "https://github.com/justinal64/nashreact#readme",
+    "devDependencies": {
+        "mdx-deck": "^1.8.2"
+    }
+}

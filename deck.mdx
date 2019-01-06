@@ -1,0 +1,113 @@
+import { Appear, Image } from "mdx-deck";
+import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
+export { dark as theme } from "mdx-deck/themes";
+
+# Hello this is my first slide!!!
+
+---
+
+# This is our second slide with notes
+
+```notes
+Notes for this slide!!
+```
+
+---
+
+# Code snippet
+
+```jsx
+const Button: React.SFC<NavigationRootProps> = ({ title }) => (
+  <CardContainer>
+    <StyledButton>{title}</StyledButton>
+  </CardContainer>
+);
+```
+
+---
+
+# Refer to this video for a link to how to import a component
+
+https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
+
+---
+
+# Importing a component sorta....
+
+import Counter from "./components/Counter.js";
+
+<button onClick={() => console.log("You clicked the button!!!!!")}>
+  Test Button
+</button>
+
+---
+
+# Using an image
+
+<Image size="400" src="./img/test.jpg" />
+
+---
+
+# Using an image
+
+<Image size="200" src="./img/TestCode.png" />
+
+---
+
+# Bullet points
+
+- Typical lifecycle of a component <br /><small>(not what you're thinking)</small>
+- How patterns can simplify
+- Composability
+- A challenge
+
+---
+
+# Click arrow add item
+
+<div style={{ fontSize: 40, textAlign: "left" }}>
+  <ul>
+    <li>
+      <strong>How</strong> to implement patterns
+    </li>
+    <Appear>
+      <li>
+        <a href="https://github.com/kentcdodds/react-testing-library">
+          react-testing-library
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/downshift">downshift</a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/babel-plugin-macros">
+          babel-plugin-macros
+        </a>
+      </li>
+      <li>
+        <del>
+          <a href="https://github.com/paypal/glamorous/issues/419">glamorous</a>
+        </del>{" "}
+        <a href="https://emotion.sh">emotion</a>
+      </li>
+    </Appear>
+  </ul>
+</div>
+
+---
+
+# Full Screen Code
+
+export default FullScreenCode;
+
+```jsx
+<Button>Beep</Button>
+```
+
+---
+
+export default SplitRight;
+
+![](./img/test.jpg)
+
+## SplitRight
