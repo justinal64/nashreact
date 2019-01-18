@@ -2,14 +2,56 @@ import { Appear, Image } from "mdx-deck";
 import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
 export { dark as theme } from "mdx-deck/themes";
 
-# Hello this is my first slide!!!
+# Hooks aren't just
+
+# for fishing ....
+
+<!-- ![](./img/fishing.jpg) -->
+
+<Image
+  src="./img/fishing.jpg"
+  style={{
+    width: "100%",
+    height: "700px"
+  }}
+/>
 
 ---
 
-# This is our second slide with notes
+# About Me
+
+<div style={{ fontSize: 40, textAlign: "left" }}>
+  <ul style={{ listStyleType: "none" }}>
+    <Appear>
+      <img src="./img/justin.png" />
+      <li>
+        <strong>How</strong> to implement patterns
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/react-testing-library">
+          react-testing-library
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/downshift">downshift</a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/babel-plugin-macros">
+          babel-plugin-macros
+        </a>
+      </li>
+      <li>
+        <del>
+          <a href="https://github.com/paypal/glamorous/issues/419">glamorous</a>
+        </del>{" "}
+        <a href="https://emotion.sh">emotion</a>
+      </li>
+    </Appear>
+  </ul>
+</div>
 
 ```notes
-Notes for this slide!!
+Work on this section
 ```
 
 ---
