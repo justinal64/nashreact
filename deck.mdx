@@ -6,27 +6,25 @@ export { dark as theme } from "mdx-deck/themes";
 
 # for fishing ....
 
-<!-- ![](./img/fishing.jpg) -->
-
-<Image
-  src="./img/fishing.jpg"
-  style={{
-    width: "100%",
-    height: "700px"
-  }}
-/>
+<img width="100%" height="500px" src="./img/fishing.jpg" />
 
 ---
 
 # About Me
 
+<img width="100%" height="100%" src="/img/justinjson.png" />
+
+```notes
+What do I say about CJC?
+```
+
+---
+
+# What this talk is
+
 <div style={{ fontSize: 40, textAlign: "left" }}>
-  <ul style={{ listStyleType: "none" }}>
+  <ul>
     <Appear>
-      <img src="./img/justin.png" />
-      <li>
-        <strong>How</strong> to implement patterns
-      </li>
       <li>
         <a href="https://github.com/kentcdodds/react-testing-library">
           react-testing-library
@@ -50,13 +48,39 @@ export { dark as theme } from "mdx-deck/themes";
   </ul>
 </div>
 
-```notes
-Work on this section
-```
+---
+
+# What this talk is Not
+
+<div style={{ fontSize: 40, textAlign: "left" }}>
+  <ul>
+    <Appear>
+      <li>
+        <a href="https://github.com/kentcdodds/react-testing-library">
+          react-testing-library
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/downshift">downshift</a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/babel-plugin-macros">
+          babel-plugin-macros
+        </a>
+      </li>
+      <li>
+        <del>
+          <a href="https://github.com/paypal/glamorous/issues/419">glamorous</a>
+        </del>{" "}
+        <a href="https://emotion.sh">emotion</a>
+      </li>
+    </Appear>
+  </ul>
+</div>
 
 ---
 
-# Code snippet
+# Example using jsx
 
 ```jsx
 const Button: React.SFC<NavigationRootProps> = ({ title }) => (
@@ -65,12 +89,6 @@ const Button: React.SFC<NavigationRootProps> = ({ title }) => (
   </CardContainer>
 );
 ```
-
----
-
-# Refer to this video for a link to how to import a component
-
-https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 
 ---
 
