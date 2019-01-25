@@ -1,4 +1,4 @@
-import { Appear, Image, Code } from "mdx-deck";
+import { Appear, Image, Code, Notes, Head } from "mdx-deck";
 import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
 export { dark as theme } from "mdx-deck/themes";
@@ -10,6 +10,7 @@ export { dark as theme } from "mdx-deck/themes";
 <img width="100%" height="500px" src="./img/fishing.jpg" />
 
 ```notes
+(press *Option + P*) to start presenter mode
 I don't know anything about fishing and I hope I don't offend angulars in the audience.
 ```
 
@@ -22,11 +23,7 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
   dark={true}
   />;
 
-```notes
-1) Read Priorities.
-2) What do I say about CJC?
-3)
-```
+<Notes>1) Read Priorities. 2) What do I say about CJC? 3)</Notes>
 
 ---
 
@@ -98,6 +95,14 @@ import Counter from "./components/Counter";
 <br />
 
 <Counter />
+
+---
+
+import CounterHooks from "./components/CounterHooks";
+
+### React Hooks Component inside Markdown
+
+<CounterHooks />
 
 ---
 

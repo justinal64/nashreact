@@ -1,25 +1,18 @@
 import React, { useState } from "react";
-
-export default class Counter extends React.Component {
-  state = {
-    count: 0
-  };
-
-  render() {
-    return (
-      <div>
-        <button
-          style={{
-            fontSize: "40px",
-            borderRadius: "4px",
-            boxShadow: "2px 2px 12px 1px #545454"
-          }}
-          onClick={() => this.setState({ count: (this.state.count += 1) })}
-        >
-          Increment
-        </button>
-        <p>Count: {this.state.count}</p>
-      </div>
-    );
-  }
+import { styles } from "../styles/styles";
+export default function CounterHooks() {
+  const [count, setCount] = useState(0); // useState returns and array and [count, setCount] is being destructured
+  const increment = () => setCount(count + 1);
+  const reset = () => setCount(0);
+  return (
+    <div>
+      <button style={styles.button} onClick={increment}>
+        Increment
+      </button>
+      <button style={styles.button} onClick={reset}>
+        Reset
+      </button>
+      <p>Count: {count}</p>
+    </div>
+  );
 }
