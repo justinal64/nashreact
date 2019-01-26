@@ -10,8 +10,8 @@ export { dark as theme } from "mdx-deck/themes";
 <img width="100%" height="500px" src="./img/fishing.jpg" />
 
 ```notes
-(press *Option + P*) to start presenter mode
 I don't know anything about fishing and I hope I don't offend angulars in the audience.
+(press *Option + P*) to start presenter mode
 ```
 
 ---
@@ -33,9 +33,9 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
   <ul>
     <Appear>
       <li>What are hooks?</li>
-      <li>What are the new lifecycle methods?</li>
-      <li>Should you use them?</li>
+      <li>What are the Pros and Cons?</li>
       <li>What about testing?</li>
+      <li>Should you use them?</li>
       <li>
         <del>What is the best lure to fish with?</del>
       </li>
@@ -67,54 +67,111 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
 # What are hooks?
 
 ```notes
-Show the image where Thanos is shooting a bolt of something at iron man....
-Also Ask about Marvel V DC Here just for fun.
+Add image to this slide?
+
+Give an overview of what Hooks are.
+
+A hook is a special function that lets you "hook into" React features. Previously if you wrote a pure js function or function component
+a term the react core team coined, and needed to add state you would convert the component to a class.
+Now you can use hooks instead.
 ```
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/1.snippet")} 
+  code={require("raw-loader!./snippets/hooks.snippet")} 
   lang="javascript"
   showNumbers={true}
   dark={true}
     steps={[
-    { notes: "Start with this note"},
-    { lines: [6], notes: "Note for the first step" },
-    { range: [5, 9] },
-    { tokens: { 9: [3, 4, 5] }, notes: "Note for the third step" }
+    { notes: "useState allows you to use state in a function component"},
+    { tokens: {4: [1, 2, 3, 4, 5, 6, 7]}, notes: "the convention is a variable name and set + (same variable name)" },
+    { tokens: {4: [11, 12, 13, 14, 15]}, notes: "0 is the initial value" },
+    { range: [5, 6], notes: "increment adds 1 and reset resets the value back to 0" },    
+    { range: [15, 15] , notes: "Notice we aren't using this.state.count" }
   ]}
   />;
 
----
+```notes
+useState returns a stateful value, and a function to update it In this example count is the stateful value and useCount
+is the function to update this value. Function component is a term react coined, which means it is literally a js function.
 
-import Counter from "./components/Counter";
+The square brackets aren't specific to react, but this is an example of array destructuring, whihc means we are making 2 variables count and setCount.
 
-### React Components inside Markdown
+Inside a function component you don't have access to this.
 
-<br />
-
-<Counter />
+Opinion
+This looks cleaner than this.state all over the place.
+```
 
 ---
 
 import CounterHooks from "./components/CounterHooks";
 
-### React Hooks Component inside Markdown
+# Counter component using Hooks
 
 <CounterHooks />
 
 ---
 
-# Using an image
+# What is useEffect?
 
-<Image size="400" src="./img/test.jpg" />
+```notes
+Add image to this slide?
+
+What is useEffect?????????
+```
 
 ---
 
-# Using an image
+<CodeSurfer 
+  code={require("raw-loader!./snippets/hooks.snippet")} 
+  lang="javascript"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "useState allows you to use state in a function component"},
+    { tokens: {5: [1, 2, 3, 4, 5, 6, 7]}, notes: "the convention is a variable name and set + (same variable name)" },
+    { tokens: {5: [11, 12, 13, 14, 15]}, notes: "0 is the initial value" },
+    { range: [6, 7], notes: "increment adds 1 and reset resets the value back to 0" },    
+    { range: [16, 16] , notes: "Notice we aren't using this.state.count" }
+  ]}
+  />;
 
-<Image size="200" src="./img/TestCode.png" />
+```notes
+useState returns a stateful value, and a function to update it In this example count is the stateful value and useCount
+is the function to update this value. Function component is a term react coined, which means it is literally a js function.
+```
+
+---
+
+# Custom Hook
+
+import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
+
+<MyResponsiveComponent />
+
+---
+
+# Summary of Hooks
+
+<div style={{ fontSize: 40, textAlign: "left" }}>
+  <ul>
+    <li>Code is more readable.</li>
+    <li>Easier to test.</li>
+    <li>Faster in Prod(In Theory).</li>
+    <li>???</li>
+    <li>???</li>
+  </ul>
+</div>
+
+```notes
+1) Your code is more readable, because hooks allow us to break out our logic more cleanly and concisely.
+2) One of the side benefits of smaller components is it is a lot easier to test.
+3) Hooks are better optimez for minification, which in theory should reduce the bundle size and make it a little more performant.
+Last Point) Tell story about what we are doing with our project at work. (Refactoring certain areas ... hitting the growing pains).
+If your at that point with your app use hooks when you refactor, but I wouldn't refactor an app just to use hooks.
+```
 
 ---
 
@@ -126,52 +183,3 @@ import CounterHooks from "./components/CounterHooks";
 - A challenge
 
 ---
-
-# Click arrow add item
-
-<div style={{ fontSize: 40, textAlign: "left" }}>
-  <ul>
-    <li>
-      <strong>How</strong> to implement patterns
-    </li>
-    <Appear>
-      <li>
-        <a href="https://github.com/kentcdodds/react-testing-library">
-          react-testing-library
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/kentcdodds/downshift">downshift</a>
-      </li>
-      <li>
-        <a href="https://github.com/kentcdodds/babel-plugin-macros">
-          babel-plugin-macros
-        </a>
-      </li>
-      <li>
-        <del>
-          <a href="https://github.com/paypal/glamorous/issues/419">glamorous</a>
-        </del>{" "}
-        <a href="https://emotion.sh">emotion</a>
-      </li>
-    </Appear>
-  </ul>
-</div>
-
----
-
-# Full Screen Code
-
-export default FullScreenCode;
-
-```jsx
-<Button>Beep</Button>
-```
-
----
-
-export default SplitRight;
-
-![](./img/test.jpg)
-
-## SplitRight

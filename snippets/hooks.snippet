@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { styles } from "../styles/styles";
 
 export default function CounterHooks() {
-  const [count, setCount] = useState(0); // useState returns an array [count, setCount] and is being destructured
+  const [count, setCount] = useState(0);
   const increment = () => setCount(count + 1);
   const reset = () => setCount(0);
   return (
