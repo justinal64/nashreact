@@ -1,9 +1,8 @@
 import React from "react";
 import { styles } from "../styles/styles";
+
 export default class Counter extends React.Component {
-  state = {
-    count: 0
-  };
+  state = { count: 0 };
   render() {
     const increment = () => this.setState({ count: (this.state.count += 1) });
     const reset = () => this.setState({ count: (this.state.count = 0) });
