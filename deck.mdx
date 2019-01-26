@@ -34,8 +34,8 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
     <Appear>
       <li>What are hooks?</li>
       <li>What are the new lifecycle methods?</li>
-      <li>Should you use them?</li>
       <li>What about testing?</li>
+      <li>Should you use them?</li>
       <li>
         <del>What is the best lure to fish with?</del>
       </li>
@@ -100,15 +100,17 @@ import Counter from "./components/Counter";
 
 import CounterHooks from "./components/CounterHooks";
 
-### React Hooks Component inside Markdown
+### React with Hooks
 
 <CounterHooks />
 
 ---
 
-# Using an image
+# MyResponsiveComponent
 
-<Image size="400" src="./img/test.jpg" />
+import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
+
+<MyResponsiveComponent />
 
 ---
 
@@ -157,6 +159,42 @@ import CounterHooks from "./components/CounterHooks";
     </Appear>
   </ul>
 </div>
+
+---
+
+# So why should you use hooks?
+
+<div style={{ fontSize: 40, textAlign: "left" }}>
+  <ul>
+    <li>
+      <strong>How</strong> to implement patterns
+    </li>
+    <Appear>
+      <li>Hooks are regular js functions.</li>
+      <li>Reduced Bundle size.</li>
+      <li>
+        <a href="https://github.com/kentcdodds/downshift">downshift</a>
+      </li>
+      <li>
+        <a href="https://github.com/kentcdodds/babel-plugin-macros">
+          babel-plugin-macros
+        </a>
+      </li>
+      <li>
+        <del>
+          <a href="https://github.com/paypal/glamorous/issues/419">glamorous</a>
+        </del>{" "}
+        <a href="https://emotion.sh">emotion</a>
+      </li>
+    </Appear>
+  </ul>
+</div>
+
+```notes
+1) Quote react team "While Hooks adds 1.5kbs to the build, using hooks will reduced the bundle size
+because hooks tends to minify better than classes."
+2)
+```
 
 ---
 
