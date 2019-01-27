@@ -1,6 +1,7 @@
 import { Appear, Image, Code, Notes, Head } from "mdx-deck";
 import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
+import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
 export { dark as theme } from "mdx-deck/themes";
 
 # Hooks aren't just
@@ -88,8 +89,16 @@ useState is known as the State hook. If you find yourself writing a function com
 
 ---
 
+import CounterHooks from "./components/CounterHooks";
+
+# Let's count using Hooks
+
+<CounterHooks />
+
+---
+
 <CodeSurfer 
-  code={require("raw-loader!./snippets/hooks.snippet")} 
+  code={require("raw-loader!./snippets/usestate.snippet")} 
   lang="javascript"
   showNumbers={true}
   dark={true}
@@ -120,14 +129,6 @@ This looks cleaner than this.state all over the place.
 
 ---
 
-import CounterHooks from "./components/CounterHooks";
-
-# Counter component using Hooks
-
-<CounterHooks />
-
----
-
 # What is useEffect?
 
 <Notes>
@@ -136,6 +137,12 @@ Add image to this slide?
 You can think of useEffect as a replacement for componentDidMount, componentDidUpdate and componentWillUnmount. useEffect is a way to do something after the component has rendered.
 
 </Notes>
+
+---
+
+# Who wide is the screen?
+
+<MyResponsiveComponent />
 
 ---
 
@@ -177,41 +184,71 @@ Think about what this would look like if this was a class. You would have compon
 Add image to this slide?
 
 Before we talk about what useContext is we need to talk about the context api. The context api is a way to pass data through your app without passing props multiple levels deep.
-It can be a good alternative to redux when all your doing is passing data around. useContext
+It can be a good alternative to redux when all your doing is passing data around.
+
+</Notes>
+
+---
+
+import { App } from "./components/useContext.js";
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <App />
+    <img width="100%" height="500px" src="./img/lukeskywalker.gif" />
+  </ul>
+</div>
+
+<Notes>
+Add image of star wars here!!!!!
 
 </Notes>
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/useeffect.snippet")} 
+  code={require("raw-loader!./snippets/usecontext.snippet")} 
   lang="javascript"
   showNumbers={true}
   dark={true}
     steps={[
-    { notes: "Let's get the width of the screen." },
-    { range: [6, 12], notes: "This is a little intimidating. What the heck is going on?" },
-    { range: [7, 7], notes: "Function to update the current width of the screen." },
-    { range: [8, 8], notes: "Simple js event to listen for the screen to be resized." },    
-    { range: [9, 11] , notes: "Event(s) you want to unmount." },
-    { notes: "What would a class look like?." }
+    { notes: "Example of passing data to child component." },
+    { range: [3, 3], notes: "Creating a context object...Okay what's that?" },
+    { range: [10, 16], notes: "Set the value that is passed down to child components." },
+    { range: [5, 8], notes: "Access data from the parent component." },
+    { notes: "Imagine this broke out into individual files." }
   ]}
   />;
 
 <Notes>
-In this example we are using useEffect to get the current width of the users screen.
+In this example we are using setContext to show how easily data can be passed from a parent to child component(s). If your not familiar with the context API or Redux this can be a little intimidating at first glance. I'm going to try to hit some of the high points, but check the docs for more detail on the context api.
 CLICK!
-At first glance useEffect looks confusing, but let's break down whats happening here.
+createContext creates a context object. A context object is like a store for data. You can add data in one component and access it in another component. 
 CLICK!
-First is a function to update the width of the users screen.
+The parent component App will be where the value is set. 
 CLICK!
-Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
+Display will retrieved the value from the store. 
 CLICK!
-What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event.
+In the example this is all in 1 file, but if this would have been a production app I would have seperated this into 1 file for the context, 1 file for the App component and 1 file for the Display component. Remember I don't have to access the value in Display. I could have easily had another component nested inside Display that was accessing the value from App.
 
-Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
+Opinion
+I feel like this is one area where React has stole an idea from angular. I think one of the pain points of React has always been how to deal with passing data around and I feel l ike the context api was a great first step and this helps make it a little more accessible.
 
 </Notes>
+
+---
+
+# Behold the power of a custom hook!!
+
+Image Here!!!
+
+<MyResponsiveComponent />
+
+<Notes>What is a custom hook?</Notes>
+
+---
+
+# Add complex component here to drive home point about hooks
 
 ---
 
@@ -228,22 +265,6 @@ Think about what this would look like if this was a class. You would have compon
     </Appear>
   </ul>
 </div>
-
----
-
-# Custom Hook
-
-import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
-
-<MyResponsiveComponent />
-
----
-
-# App Test
-
-import { App } from "./components/useContext.js";
-
-<App />
 
 ---
 
@@ -272,9 +293,12 @@ import { App } from "./components/useContext.js";
 
 # Thank you for coming.
 
-- Typical lifecycle of a component <br /><small>(not what you're thinking)</small>
-- How patterns can simplify
-- Composability
-- A challenge
+<div style={{ fontSize: 40, textAlign: "left" }}>
+  <ul>
+    <li>Code is more readable.</li>
+    <li>Easier to test.</li>
+    <li>Faster in Prod(In Theory).</li>
+  </ul>
+</div>
 
 ---
