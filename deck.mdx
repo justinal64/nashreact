@@ -171,6 +171,49 @@ Think about what this would look like if this was a class. You would have compon
 
 ---
 
+# What is useContext?
+
+<Notes>
+Add image to this slide?
+
+add description of useContext here!!!!
+
+</Notes>
+
+---
+
+<CodeSurfer 
+  code={require("raw-loader!./snippets/useeffect.snippet")} 
+  lang="javascript"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "Let's get the width of the screen." },
+    { range: [6, 12], notes: "This is a little intimidating. What the heck is going on?" },
+    { range: [7, 7], notes: "Function to update the current width of the screen." },
+    { range: [8, 8], notes: "Simple js event to listen for the screen to be resized." },    
+    { range: [9, 11] , notes: "Event(s) you want to unmount." },
+    { notes: "What would a class look like?." }
+  ]}
+  />;
+
+<Notes>
+In this example we are using useEffect to get the current width of the users screen.
+CLICK!
+At first glance useEffect looks confusing, but let's break down whats happening here.
+CLICK!
+First is a function to update the width of the users screen.
+CLICK!
+Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
+CLICK!
+What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event.
+
+Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
+
+</Notes>
+
+---
+
 # Important notes about hooks.
 
 <div style={{ fontSize: 60, textAlign: "left" }}>
