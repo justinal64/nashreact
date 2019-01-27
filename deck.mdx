@@ -55,7 +55,7 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
       <li>
         What is Suspense...
         <span style={{ fontSize: 40, textAlign: "left" }}>
-          (unless I get nervous and talk to fast about Hooks)
+          (unless I get nervous and talk to fast)
         </span>
       </li>
     </Appear>
@@ -66,15 +66,25 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
 
 # What are hooks?
 
-```notes
+<Notes>
 Add image to this slide?
 
-Give an overview of what Hooks are.
-
 A hook is a special function that lets you "hook into" React features. Previously if you wrote a pure js function or function component
-a term the react core team coined, and needed to add state you would convert the component to a class.
+a term the react team coined, and needed to add state you would convert the component to a class.
 Now you can use hooks instead.
-```
+
+</Notes>
+
+---
+
+# What is useState?
+
+<Notes>
+Add image to this slide?
+
+useState is known as the State hook. If you find yourself writing a function component and you want to add state previously you would have to convert your code to use a class. Now we can use useState instead.
+
+</Notes>
 
 ---
 
@@ -92,17 +102,21 @@ Now you can use hooks instead.
   ]}
   />;
 
-```notes
-useState returns a stateful value, and a function to update it In this example count is the stateful value and useCount
-is the function to update this value. Function component is a term react coined, which means it is literally a js function.
-
-The square brackets aren't specific to react, but this is an example of array destructuring, whihc means we are making 2 variables count and setCount.
-
-Inside a function component you don't have access to this.
+<Notes>
+This is an example straight from the React docs. This is a simple function that increments the count and displays it to the user.
+CLICK!
+The square brackets aren't specific to react this is an example of array destructuring, which means we are creating 2 variables count and setCount.
+CLICK!
+useState requires an initial value. In this case I set it to 0 sense I'm going to increment a number. useState will return the current state, and a function to update it. In this example count is the stateful value and useCount is the function to update count.
+CLICK!
+Describe these functions
+CLICK!
+Instead of this.state.count we just refer to the variable count.
 
 Opinion
 This looks cleaner than this.state all over the place.
-```
+
+</Notes>
 
 ---
 
@@ -116,32 +130,60 @@ import CounterHooks from "./components/CounterHooks";
 
 # What is useEffect?
 
-```notes
+<Notes>
 Add image to this slide?
 
-What is useEffect?????????
-```
+You can think of useEffect as a replacement for componentDidMount, componentDidUpdate and componentWillUnmount. useEffect is a way to do something after the component has rendered.
+
+</Notes>
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/hooks.snippet")} 
+  code={require("raw-loader!./snippets/useeffect.snippet")} 
   lang="javascript"
   showNumbers={true}
   dark={true}
     steps={[
-    { notes: "useState allows you to use state in a function component"},
-    { tokens: {5: [1, 2, 3, 4, 5, 6, 7]}, notes: "the convention is a variable name and set + (same variable name)" },
-    { tokens: {5: [11, 12, 13, 14, 15]}, notes: "0 is the initial value" },
-    { range: [6, 7], notes: "increment adds 1 and reset resets the value back to 0" },    
-    { range: [16, 16] , notes: "Notice we aren't using this.state.count" }
+    { notes: "Let's get the width of the screen." },
+    { range: [6, 12], notes: "This is a little intimidating. What the heck is going on?" },
+    { range: [7, 7], notes: "Function to update the current width of the screen." },
+    { range: [8, 8], notes: "Simple js event to listen for the screen to be resized." },    
+    { range: [9, 11] , notes: "Event(s) you want to unmount." },
+    { notes: "What would a class look like?." }
   ]}
   />;
 
-```notes
-useState returns a stateful value, and a function to update it In this example count is the stateful value and useCount
-is the function to update this value. Function component is a term react coined, which means it is literally a js function.
-```
+<Notes>
+In this example we are using useEffect to get the current width of the users screen.
+CLICK!
+At first glance useEffect looks confusing, but let's break down whats happening here.
+CLICK!
+First is a function to update the width of the users screen.
+CLICK!
+Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
+CLICK!
+What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event.
+
+Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
+
+</Notes>
+
+---
+
+# Important notes about hooks.
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <Appear>
+      <li>Hooks can only be called from React function components</li>
+      <li>Hooks must be called at the top level</li>
+      <li>
+        Hooks must run in the same order every time. (No conditional renders)
+      </li>
+    </Appear>
+  </ul>
+</div>
 
 ---
 
@@ -160,22 +202,23 @@ import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
     <li>Code is more readable.</li>
     <li>Easier to test.</li>
     <li>Faster in Prod(In Theory).</li>
-    <li>???</li>
-    <li>???</li>
   </ul>
 </div>
 
-```notes
-1) Your code is more readable, because hooks allow us to break out our logic more cleanly and concisely.
-2) One of the side benefits of smaller components is it is a lot easier to test.
-3) Hooks are better optimez for minification, which in theory should reduce the bundle size and make it a little more performant.
-Last Point) Tell story about what we are doing with our project at work. (Refactoring certain areas ... hitting the growing pains).
-If your at that point with your app use hooks when you refactor, but I wouldn't refactor an app just to use hooks.
-```
+<Notes>
+  Your code is more readable, because hooks allow us to break out our logic more
+  cleanly and concisely. One of the side benefits of smaller components is it is
+  a lot easier to test. Hooks are better optimez for minification, which in
+  theory should reduce the bundle size and make it a little more performant.
+  Last Point) Tell story about what we are doing with our project at work.
+  (Refactoring certain areas ... hitting the growing pains). If your at that
+  point with your app use hooks when you refactor, but I wouldn't refactor a
+  prod app just to use hooks.
+</Notes>
 
 ---
 
-# Bullet points
+# Thank you for coming.
 
 - Typical lifecycle of a component <br /><small>(not what you're thinking)</small>
 - How patterns can simplify
