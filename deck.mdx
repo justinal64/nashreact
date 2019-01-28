@@ -1,7 +1,8 @@
 import { Appear, Image, Code, Notes, Head } from "mdx-deck";
 import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
-import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
+import { MyResponsiveComponent } from "./components/MyResponsiveComponent.js";
+import { HooksAdvancedPres } from "./components/hooksadvancedpres.js";
 export { dark as theme } from "mdx-deck/themes";
 
 # Hooks aren't just
@@ -170,7 +171,7 @@ First is a function to update the width of the users screen.
 CLICK!
 Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
 CLICK!
-What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event.
+What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event. Another advantage of useEffect's is they do not block the browser from updating the screen, so this will make your app feel more responsive.
 
 Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
 
@@ -249,6 +250,8 @@ Image Here!!!
 ---
 
 # Add complex component here to drive home point about hooks
+
+<HooksAdvancedPres />
 
 ---
 

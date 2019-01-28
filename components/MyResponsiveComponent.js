@@ -1,7 +1,7 @@
 import React from "react";
 import { useWindowWidth } from "./useWindowWidth";
 
-export default function MyResponsiveComponent() {
+export function MyResponsiveComponent() {
   const width = useWindowWidth(); // custom Hook
   return (
     <div>
