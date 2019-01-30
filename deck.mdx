@@ -1,7 +1,9 @@
 import { Appear, Image, Code, Notes, Head } from "mdx-deck";
 import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
-import MyResponsiveComponent from "./components/MyResponsiveComponent.js";
+import { MyResponsiveComponent } from "./components/MyResponsiveComponent.js";
+import { HooksAdvancedPres } from "./components/hooksadvancedpres.js";
+import CounterHooks from "./components/CounterHooks";
 export { dark as theme } from "mdx-deck/themes";
 
 # Hooks aren't just
@@ -24,8 +26,17 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
   dark={true}
   />;
 
-<Notes>1) Read Priorities. 2) What do I say about CJC? 3)</Notes>
+<Notes>1) Read Priorities. 2) What do I say about CJC?</Notes>
 
+---
+
+# Hooks Release Date is February 4th
+
+<img width="100%" height="700px" src="./img/hooksreleasedate.png" />
+
+<Notes>
+  February 4th is the official release date for Hooks!
+</Notes>
 ---
 
 # Some of the questions this talk will answer
@@ -46,26 +57,22 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
 
 ---
 
-# What this talk is Not
+# What problem(s) are Hooks solving
 
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <Appear>
-      <li>What is React?</li>
-      <li>Mixins are cool...right?</li>
-      <li>
-        What is Suspense...
-        <span style={{ fontSize: 40, textAlign: "left" }}>
-          (unless I get nervous and talk to fast)
-        </span>
-      </li>
-    </Appear>
+    <li>Wrapper Hell</li>
+    <li>Bloated Components</li>
+    <li>Classes can be confusing.</li>
+    <li>Duplicated logic.</li>
+    <li>HOC, Classes, Render props ... oh my!!!.</li>
+    <li>Lower barrier to entry for new devs.</li>
   </ul>
 </div>
 
 ---
 
-# What are hooks?
+# What are Hooks?
 
 <Notes>
 Add image to this slide?
@@ -89,11 +96,11 @@ useState is known as the State hook. If you find yourself writing a function com
 
 ---
 
-import CounterHooks from "./components/CounterHooks";
-
 # Let's count using Hooks
 
 <CounterHooks />
+
+<img width="100%" height="500px" src="./img/count.png" />
 
 ---
 
@@ -170,7 +177,7 @@ First is a function to update the width of the users screen.
 CLICK!
 Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
 CLICK!
-What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event.
+What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event. Another advantage of useEffect's is they do not block the browser from updating the screen, so this will make your app feel more responsive.
 
 Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
 
@@ -238,17 +245,45 @@ I feel like this is one area where React has stole an idea from angular. I think
 
 ---
 
-# Behold the power of a custom hook!!
+# Advanced Hooks
 
-Image Here!!!
-
-<MyResponsiveComponent />
-
-<Notes>What is a custom hook?</Notes>
+<HooksAdvancedPres />
 
 ---
 
-# Add complex component here to drive home point about hooks
+<CodeSurfer 
+  code={require("raw-loader!./snippets/advancedhook.snippet")} 
+  lang="javascript"
+  showNumbers={false}
+  dark={true}
+    steps={[
+    { notes: "Example with multiple useState and useEffects" },
+    { range: [6, 9], notes: "Multiple setState's." },
+    { range: [16, 18], notes: "Add event listeners." },
+    { range: [20, 22], notes: "Remember this replaces componentWillUnmount." },
+    { range: [26, 30], notes: "OnMount status() get's ran 1 time. Why?" },
+    { tokens: {30: [4, 5]}, notes: "What's the empty array for?" }, 
+    { notes: "What's this look like as a class?" }
+  ]}
+  />;
+
+<Notes>
+In this example we are using multiple setState's and useEffect. 
+CLICK!
+You can set setState to an initialValue. One example I have seen is declaring a variable initVal and using it for all instances of useState, then you can test for the initial value in your component to make sure it is initialized properly.
+CLICK!
+addEventlisteners 
+CLICK!
+Remember this get's fired when the component is unmounted.
+CLICK!
+In thie effect we are firing the event OnMount. If this is updating state why isn't it an infinite loop?
+CLICK!
+When you pass an empty array to useEffect it stops the effect from rerendering. If you had an array of numerous items you could pass a 2nd argument that say updates a single object going forward.
+
+Opinion
+I have to say I work in Angular all day, and we don't have console errors about memory leaks, but I'm impressed with the error messages that react emits when it detects a memory leak.
+
+</Notes>
 
 ---
 
@@ -276,7 +311,7 @@ Image Here!!!
       <li>Code is more readable.</li>
       <li>Easier to test.</li>
       <li>Faster in Prod(In Theory).</li>
-      <li>Custom Hooks could be a game changer.</li>
+      <li>Custom Hooks could be a game changer. I hate that term!</li>
     </Appear>
   </ul>
 </div>
@@ -296,17 +331,18 @@ Image Here!!!
 
 ---
 
-# Thank you for coming.
+# Special Thanks
 
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <Appear>
-      <li>Code is more readable.</li>
-      <li>Easier to test.</li>
-      <li>Faster in Prod(In Theory).</li>
-      <li>Custom Hooks could be a game changer.</li>
-    </Appear>
+    <li>Kevin Old</li>
+    <li>React Community</li>
+    <li>Interactive Resources for bring food</li>
   </ul>
 </div>
 
-<Notes>What do I add here?</Notes>
+---
+
+# Go make something great everyone!
+
+<img width="100%" height="700px" src="./img/awesome.jpg" />
