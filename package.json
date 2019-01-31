@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "mdx-deck deck.mdx",
-        "build": "mdx-deck build deck.mdx --no-html "
+        "build": "mdx-deck build deck.mdx"
     },
     "repository": {
         "type": "git",
